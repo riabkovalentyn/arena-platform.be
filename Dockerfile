@@ -1,4 +1,9 @@
-FROM python:3.11
+FROM python:3.11-slim-bookworm
+
+# Update system packages to reduce vulnerabilities
+RUN apt-get update && apt-get upgrade -y && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+
 
 WORKDIR /code
 
